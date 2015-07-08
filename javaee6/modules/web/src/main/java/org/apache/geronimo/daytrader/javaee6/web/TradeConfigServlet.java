@@ -173,8 +173,8 @@ public class TradeConfigServlet extends HttpServlet {
         }
         currentConfigStr += "\t\tOrderProcessingMode:\t" + TradeConfig.orderProcessingModeNames[TradeConfig.orderProcessingMode]  + "\n";        
         
-        //String accessModeStr = req.getParameter("AcessMode");
-        String accessModeStr = "Standard";
+        String accessModeStr = req.getParameter("AccessMode");
+        //String accessModeStr = "Standard";
         if (accessModeStr != null)
         {
             try
@@ -190,12 +190,12 @@ public class TradeConfigServlet extends HttpServlet {
                 Log.error(
                     e, 
                     "TradeConfigServlet.doConfigUpdate(..): minor exception caught", 
-                    "trying to set orderProcessing to " + orderProcessingModeStr, 
+                    "trying to set accessMode to " + accessModeStr,
                     "reverting to current value");
 
             } // If the value is bad, simply revert to current
         }        
-        currentConfigStr += "\t\tAcessMode:\t\t" + TradeConfig.accessModeNames[TradeConfig.getAccessMode()]  + "\n";        
+        currentConfigStr += "\t\tAccessMode:\t\t" + TradeConfig.accessModeNames[TradeConfig.getAccessMode()]  + "\n";
         
             
         String workloadMixStr = req.getParameter("WorkloadMix");
